@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>피부 관리 트래커</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>피부 관리 트래커</h1>
+    <div class="container">
+        <!-- 팩 하기 전 입력 -->
+        <h2>팩 하기 전</h2>
+        <label for="moistureBefore">수분 (0-100):</label>
+        <input type="range" id="moistureBefore" name="moistureBefore" min="0" max="100" value="50">
+        <span id="moistureBeforeValue">50</span>
+
+        <label for="oilBefore">유분 (0-100):</label>
+        <input type="range" id="oilBefore" name="oilBefore" min="0" max="100" value="50">
+        <span id="oilBeforeValue">50</span>
+
+        <label for="elasticityBefore">탄력 (0-100):</label>
+        <input type="range" id="elasticityBefore" name="elasticityBefore" min="0" max="100" value="50">
+        <span id="elasticityBeforeValue">50</span>
+
+        <label for="fluorescenceBefore">형광 (0-100):</label>
+        <input type="range" id="fluorescenceBefore" name="fluorescenceBefore" min="0" max="100" value="50">
+        <span id="fluorescenceBeforeValue">50</span>
+
+        <label for="finalScoreBefore">최종 점수 (0-100):</label>
+        <input type="number" id="finalScoreBefore" name="finalScoreBefore" min="0" max="100" value="50">
+
+        <!-- 팩 한 후 입력 -->
+        <h2>팩 한 후</h2>
+        <label for="moistureAfter">수분 (0-100):</label>
+        <input type="range" id="moistureAfter" name="moistureAfter" min="0" max="100" value="50">
+        <span id="moistureAfterValue">50</span>
+
+        <label for="oilAfter">유분 (0-100):</label>
+        <input type="range" id="oilAfter" name="oilAfter" min="0" max="100" value="50">
+        <span id="oilAfterValue">50</span>
+
+        <label for="elasticityAfter">탄력 (0-100):</label>
+        <input type="range" id="elasticityAfter" name="elasticityAfter" min="0" max="100" value="50">
+        <span id="elasticityAfterValue">50</span>
+
+        <label for="fluorescenceAfter">형광 (0-100):</label>
+        <input type="range" id="fluorescenceAfter" name="fluorescenceAfter" min="0" max="100" value="50">
+        <span id="fluorescenceAfterValue">50</span>
+
+        <label for="finalScoreAfter">최종 점수 (0-100):</label>
+        <input type="number" id="finalScoreAfter" name="finalScoreAfter" min="0" max="100" value="50">
+
+        <!-- 상단의 데이터 시각화 버튼 제거 -->
+        <button onclick="recommendRecipe()">추천 레시피 저장</button>
+        <button onclick="visualizeFinalScore()">최종 점수 시각화</button>
+    </div>
+
+    <div id="recipeResult"></div>
+
+    <h2>저장된 기록</h2>
+    <ul id="recordList"></ul>
+
+    <!-- 하단의 데이터 시각화 섹션 유지 -->
+    <h2>데이터 시각화</h2>
+    <label for="dateSelect">날짜 선택:</label>
+    <select id="dateSelect" onchange="visualizeData()">
+        <!-- JavaScript를 통해 날짜 옵션이 동적으로 추가됩니다 -->
+    </select>
+    <button onclick="visualizeData()">시각화</button>
+
+    <div id="chartContainer">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
